@@ -3,9 +3,14 @@ A simple and responsive to-do list web application built using HTML, CSS and Jav
 
 ## Features
 . Add task
+<br>
+. Delete Tasks
+<br>
 . Clean and responsive UI
 
 ## Technologies used
 . HTML
+<br>
 . CSS
+<br>
 . Javascript 
