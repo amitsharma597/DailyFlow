@@ -1,32 +1,49 @@
 
-document.addEventListener('DOMContentLoaded', ()=> {
-    const taskinput = document.getElementById("task-input");
-    const addtaskbtn = document.getElementById("add-task-btn");
-    const tasklist = document.getElementById("task-list");
+document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById("task-input");
+    const addTaskBtn = document.getElementById("add-task-btn");
+    const taskList = document.getElementById("task-list");
+    const totalCountEl = document.getElementById('total-count');
+    const completedCountEl = document.getElementById('completed-count');
+    const pendingCountEl = document.getElementById('pending-count');
 
-    const savetasks = () => {
+    const saveTasks = () => {
         const tasks = [];
 
         document.querySelectorAll('#task-list li').forEach(li => {
             const text = li.querySelector('span').textContent;
             const checked = li.querySelector('.checkbox').checked;
-            tasks.push({text, checked});
+            tasks.push({ text, checked });
         });
 
         localStorage.setItem('tasks', JSON.stringify(tasks));
     };
 
-    const loadtasks = () => {
+    const updateStats = () => {
+        const allTasks = document.querySelectorAll('#task-list li');
+        const completedTasks = document.querySelectorAll('#task-list li .checkbox:checked');
+
+        const total = allTasks.length;
+        const completed = completedTasks.length;
+        const pending = total - completed;
+
+        totalCountEl.textContent = total;
+        pendingCountEl.textContent = pending;
+        completedCountEl.textContent = completed;
+
+    };
+
+    const loadTasks = () => {
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         tasks.forEach(task => {
-            createtask(task.text, task.checked);
+            createTask(task.text, task.checked);
         });
-        };
+    };
 
-        const createtask = (tasktext, ischecked=false) => {
-            
-             const li = document.createElement("li");
-        
+    const createTask = (tasktext, ischecked = false) => {
+
+        const li = document.createElement("li");
+
         li.innerHTML = `<input type="checkbox" class="checkbox"></input>
         <span>${tasktext}</span>
         <div class="task-buttons">
@@ -39,54 +56,60 @@ document.addEventListener('DOMContentLoaded', ()=> {
        
        `;
 
-       const checkbox = li.querySelector('.checkbox');
-       checkbox.checked = ischecked;
+        const checkbox = li.querySelector('.checkbox');
+        checkbox.checked = ischecked;
 
-       checkbox.addEventListener('change', savetasks);
+        checkbox.addEventListener('change', () => {
+            saveTasks();
+            updateStats();
 
-       
-       li.querySelector(".delete-btn").addEventListener('click', ()=>{
-        li.remove();
-        savetasks();
-       });
-
-       
-
-        
-        tasklist.appendChild(li);
-     
+        });
 
 
-        };
+        li.querySelector(".delete-btn").addEventListener('click', () => {
+            li.remove();
+            saveTasks();
+            updateStats();''
+        });
 
-    const addtask = (event) => {
-        const tasktext = taskinput.value.trim();
-        if(!tasktext) {
+
+
+
+        taskList.appendChild(li);
+
+
+
+    };
+
+    const addTask = (event) => {
+        const taskText = taskInput.value.trim();
+        if (!taskText) {
             return
         }
 
-        createtask(tasktext);
-        savetasks();
+        createTask(taskText);
+        saveTasks();
+        updateStats();
 
-        taskinput.value = '';
+        taskInput.value = '';
 
-       
+
 
 
     };
 
 
 
-    addtaskbtn.addEventListener('click',addtask);
-    taskinput.addEventListener('keypress',(e) =>{
-        if(e.key === 'Enter')
-        {
-            addtask(e);
+    addTaskBtn.addEventListener('click', addTask);
+    taskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            addTask(e);
         }
 
-        });
+    });
 
-        loadtasks();
+    loadTasks();
+    updateStats();
 
 
 });
