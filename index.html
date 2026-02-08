@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUCTIV</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
@@ -18,13 +33,13 @@
     <main>
         <section class="hero">
             <p>
-            <h1>WELCOME!!</h1>
+            <h1>WELCOME!</h1>
             </p>
 
         </section>
         <section class="hero2">
             <p>
-            <h4>Let's make your day Productive</h4>
+            <h4>Make today productive</h4>
             </p>
 
         </section>
@@ -34,7 +49,7 @@
 
         <section>
             <div class="container">
-                <p>Set your daily tasks and be ahead of 99%</p>
+                <p>Plan your tasks. Stay focused</p>
 
             </div>
         </section>
@@ -43,7 +58,7 @@
 
             <div class="stats-all total">
 
-                Total Tasks
+                Tasks Created
                 <br>
                 <span id="total-count">0</span>
 
@@ -51,7 +66,7 @@
 
             <div class="stats-all completed">
 
-                Completed Tasks
+                Tasks Completed
                 <br>
                 <span id="completed-count">0</span>
 
@@ -60,7 +75,7 @@
 
             <div class="stats-all pending">
 
-                Pending Tasks
+                Tasks Remaining
                 <br>
                 <span id="pending-count">0</span>
 
@@ -73,18 +88,18 @@
 
 
 
-        <section class="addtask">
-            <input type="text" placeholder="Add a new task " name="" id="task-input">
-            <button id="add-task-btn">ADD TASK</button>
-
-
-        </section>
+        
 
         <section>
             <div class="todo">
                 <h3>Task List</h3>
                 <ul id="task-list"></ul>
             </div>
+        </section>
+
+        <section class="addtask">
+            <input type="text" placeholder="Add a new task " name="" id="task-input">
+            <button id="add-task-btn">ADD TASK</button>
         </section>
 
 
@@ -98,6 +113,6 @@
 
     </main>
 </body>
-<script src="jss/app.js"></script>
+<script src="jss/app.js" defer></script>
 
 </html>
