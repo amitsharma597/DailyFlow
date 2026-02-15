@@ -49,11 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="task-buttons">
               <button class="delete-btn">Delete</button>
         </div>
-
-        
-
-           
-       
        `;
 
         const checkbox = li.querySelector('.checkbox');
@@ -69,15 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         li.querySelector(".delete-btn").addEventListener('click', () => {
             li.remove();
             saveTasks();
-            updateStats();''
+            updateStats(); ''
         });
 
-
-
-
         taskList.appendChild(li);
-
-
 
     };
 
@@ -92,10 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStats();
 
         taskInput.value = '';
-
-
-
-
     };
 
 
