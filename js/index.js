@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCountEl = document.getElementById('total-count');
     const completedCountEl = document.getElementById('completed-count');
     const pendingCountEl = document.getElementById('pending-count');
+    const todoSection = document.querySelector('.todo');
 
     const saveTasks = () => {
         const tasks = [];
@@ -41,7 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const createTask = (tasktext, ischecked = false) => {
+if (taskList.children.length===0){
+    todoSection.style.display = "block";
 
+}
         const li = document.createElement("li");
 
         li.innerHTML = `<input type="checkbox" class="checkbox"></input>
@@ -64,7 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
         li.querySelector(".delete-btn").addEventListener('click', () => {
             li.remove();
             saveTasks();
-            updateStats(); ''
+            updateStats();
+            if (taskList.children.length===0){
+    todoSection.style.display = "none";
+
+}
         });
 
         taskList.appendChild(li);
