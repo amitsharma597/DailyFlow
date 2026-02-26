@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const completedCountEl = document.getElementById('completed-count');
     const pendingCountEl = document.getElementById('pending-count');
     const todoSection = document.querySelector('.todo');
+    const toggleButton = document.getElementById('toggle-btn');
 
     const saveTasks = () => {
         const tasks = [];
@@ -42,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const createTask = (tasktext, ischecked = false) => {
-if (taskList.children.length===0){
-    todoSection.style.display = "block";
+        if (taskList.children.length === 0) {
+            todoSection.style.display = "block";
 
-}
+        }
         const li = document.createElement("li");
 
         li.innerHTML = `<input type="checkbox" class="checkbox"></input>
@@ -69,10 +70,10 @@ if (taskList.children.length===0){
             li.remove();
             saveTasks();
             updateStats();
-            if (taskList.children.length===0){
-    todoSection.style.display = "none";
+            if (taskList.children.length === 0) {
+                todoSection.style.display = "none";
 
-}
+            }
         });
 
         taskList.appendChild(li);
@@ -100,6 +101,22 @@ if (taskList.children.length===0){
             addTask(e);
         }
 
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+    }
+
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        if (isDark) {
+            localStorage.setItem('theme', 'dark');
+        }
+        else {
+            localStorage.removeItem('theme')
+        }
     });
 
     loadTasks();
