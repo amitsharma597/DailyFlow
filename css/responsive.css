@@ -1,0 +1,30 @@
+@media (min-width: 768px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero2 h4 {
+        font-size: 20px;
+    }
+
+    .stats {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .stats-all {
+        width: 280px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .addtask,
+    .todo {
+        margin: 40px auto;
+        max-width: 720px;
+    }
+}
