@@ -1,18 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
+  font:
+    16px "Inter",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
 }
 
 hr {
-    border: none;
-    height: 1px;
-    margin: 24px 0;
-    background: linear-gradient(to right, transparent, var(--card-border), transparent);
+  border: 0;
+  height: 1px;
+  margin: 24px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--card-border),
+    transparent
+  );
 }
